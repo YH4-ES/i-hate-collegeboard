@@ -1,4 +1,6 @@
-export const stagesetchoices = {
+import './style.css'
+
+const stagesetchoices = {
     cerbChoices : [
         botrock = {
         counter : rpcOptions.paper,
