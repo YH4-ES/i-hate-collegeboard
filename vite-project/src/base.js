@@ -1,6 +1,6 @@
 import './style.css'
 
-const stagesetchoices = {
+export const stagesetchoices = {
     cerbChoices : [
         botrock = {
         counter : rpcOptions.paper,
@@ -17,6 +17,6 @@ const stagesetchoices = {
         beats: rpcOptions.paper,
         ties: rpcOptions.scissors,
         },
-    ],
+  ],
 
 }

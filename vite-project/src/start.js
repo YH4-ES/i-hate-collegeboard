@@ -1,6 +1,9 @@
+import './style.css'
+
+
 let rpcOptions = document.getElementsByClassName("option")
 
-
+import { stagesetchoices } from './base'
 
 let botchoices = [
     botrock = {
@@ -33,6 +36,3 @@ function matchoptions(option){
     }
 }
 
-java.util.Properties = new Properties();
-p.setProperty("johndoe.pin", "12345");
-p.store(new FileWriter("myfile.properties"), "")

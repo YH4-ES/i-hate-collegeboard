@@ -10,5 +10,8 @@
   },
   "devDependencies": {
     "vite": "^7.2.4"
+  },
+  "dependencies": {
+    "@fontsource/press-start-2p": "^5.2.7"
   }
 }
