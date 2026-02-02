@@ -163,8 +163,6 @@ function addSelection(options, botset, botchoice, nextRoom, loseRoom, tieRoom){
     for (let i = 0; i < options.length; i++){
         rpcOptions[i].addEventListener("click", (el)=>{
             el.preventDefault()
-            console.log(botset[botchoice].image, "jogn")
-            console.log(botset[botchoice].ties.id)
             return matchoptions(el, botset, botchoice, nextRoom, loseRoom, tieRoom)
         })
     }
