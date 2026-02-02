@@ -89,6 +89,7 @@ function randombotChoice(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min
 }
 function matchoptions(option, botset, botchoice, nextRoom, loseRoom, tieRoom){
+    console.log(botset[botchoice].counter.id)
     if (botset[botchoice].counter !== null){
     if (botset[botchoice].counter.length > 1){
         botset[botchoice].counter.forEach(counter => {
@@ -102,7 +103,9 @@ function matchoptions(option, botset, botchoice, nextRoom, loseRoom, tieRoom){
                 }
             }
         })
-    } else if (option.originalTarget.id == botset[botchoice].counter.id){
+    } 
+    
+    else if (option.target.id == botset[botchoice].counter.id){
         console.log("WIN")
         
         if (!nextRoom){
@@ -124,7 +127,7 @@ function matchoptions(option, botset, botchoice, nextRoom, loseRoom, tieRoom){
                 window.location.href = loseRoom;
             }
         })
-    }else if (option.originalTarget.id == botset[botchoice].beats.id){
+    }else if (option.target.id == botset[botchoice].beats.id){
         console.log("LOSE")
         if (!loseRoom){
             console.log("cancelled")
@@ -146,7 +149,7 @@ function matchoptions(option, botset, botchoice, nextRoom, loseRoom, tieRoom){
             }
         })
     }
-    else if (option.originalTarget.id == botset[botchoice].ties.id){
+    else if (option.target.id == botset[botchoice].ties.id){
         console.log("TIE")
         if (typeof tieRoom == undefined){
             return "tie"
@@ -161,6 +164,7 @@ function addSelection(options, botset, botchoice, nextRoom, loseRoom, tieRoom){
         rpcOptions[i].addEventListener("click", (el)=>{
             el.preventDefault()
             console.log(botset[botchoice].image, "jogn")
+            console.log(botset[botchoice].ties.id)
             return matchoptions(el, botset, botchoice, nextRoom, loseRoom, tieRoom)
         })
     }
