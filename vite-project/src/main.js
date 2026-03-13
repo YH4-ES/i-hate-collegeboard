@@ -1,10 +1,10 @@
-
+import './style.css'
 
 let rpcOptions = document.getElementsByClassName("option")
 let stage = document.getElementById("location")
 let desc = document.querySelector(".desc")
 let maincontent = document.getElementById("maincontent")
-
+let location = document.getElementById("location")
 
 const stagesetchoices = {
     cerbChoices : [
@@ -12,19 +12,19 @@ const stagesetchoices = {
         counter : rpcOptions.paper,
         beats : rpcOptions.scissors,
         ties : rpcOptions.rock,
-        image : "./carb_rock.png"
+        image : "/carb_rock.png"
         },
         {
         counter : rpcOptions.scissors,
         beats : rpcOptions.rock,
         ties : rpcOptions.paper,
-        image: "./cerb_paper.png"
+        image: "/cerb_paper.png"
         },
         {
         counter: rpcOptions.rock,
         beats: rpcOptions.paper,
         ties: rpcOptions.scissors,
-        image: "./carb_scissor.png"
+        image: "carb_scissor.png"
         },
   ],
   LuciferChoices_Norm : [
@@ -32,19 +32,19 @@ const stagesetchoices = {
     counter : rpcOptions.paper,
     beats : rpcOptions.scissors,
     ties : rpcOptions.rock,
-    image: "./luc_rock.png"
+    image: "luc_rock.png"
     },
     {
     counter : rpcOptions.scissors,
     beats : rpcOptions.rock,
     ties : rpcOptions.paper,
-    image: "./luc_pap.png"
+    image: "luc_pap.png"
     },
     {
     counter: rpcOptions.rock,
     beats: rpcOptions.paper,
     ties: rpcOptions.scissors,
-    image: "./luc_scissors.png"
+    image: "luc_scissors.png"
     },
     {
         counter: null,
@@ -57,25 +57,25 @@ const stagesetchoices = {
     counter : rpcOptions.paper,
     beats : rpcOptions.scissors,
     ties : rpcOptions.rock,
-    image: "./luc_rock_exp.png"
+    image: "luc_rock_exp.png"
     },
     {
     counter : rpcOptions.scissors,
     beats : rpcOptions.rock,
     ties : rpcOptions.paper,
-    image: "./luc_paper_exp.png"
+    image: "luc_paper_exp.png"
     },
     {
     counter: rpcOptions.rock,
     beats: rpcOptions.paper,
     ties: rpcOptions.scissors,
-    image: "./luc_scissors_exp.png"
+    image: "luc_scissors_exp.png"
     },
     {
         counter: null,
         beats: [rpcOptions.paper, rpcOptions.rock, rpcOptions.scissors],
         ties: null,
-        image: "./luc_spellcast_exp.png"
+        image: "luc_spellcast_exp.png"
     }
   ]
 
@@ -151,7 +151,7 @@ function matchoptions(option, botset, botchoice, nextRoom, loseRoom, tieRoom){
     }
     else if (option.target.id == botset[botchoice].ties.id){
         console.log("TIE")
-        if (typeof tieRoom == "undefined"){
+        if (typeof tieRoom == undefined){
             return "tie"
         }
         window.location.href = tieRoom;
@@ -161,7 +161,7 @@ function matchoptions(option, botset, botchoice, nextRoom, loseRoom, tieRoom){
 
 function addSelection(options, botset, botchoice, nextRoom, loseRoom, tieRoom){
     for (let i = 0; i < options.length; i++){
-        options[i].addEventListener("click", (el)=>{
+        rpcOptions[i].addEventListener("click", (el)=>{
             el.preventDefault()
             return matchoptions(el, botset, botchoice, nextRoom, loseRoom, tieRoom)
         })
@@ -180,15 +180,15 @@ function battleSetup(min, max, botset, nextRoom, loseRoom, tieRoom){
 }
 
 if (stage.dataset.room == "cerb"){
-    battleSetup(0, 2, stagesetchoices.cerbChoices, "./start_win.html", "./start_lose.html", "./start_tie.html")
+    battleSetup(0, 2, stagesetchoices.cerbChoices, "/start_win.html", "/start_lose.html", "/start_tie.html")
 } 
 else if (stage.dataset.room == "lucifer"){
-    battleSetup(0, 2, stagesetchoices.LuciferChoices_Norm, "./Lucifer_Inter.html", "./lucifer_lose.html", "./lucifer_tie.html")
+    battleSetup(0, 2, stagesetchoices.LuciferChoices_Norm, "/Lucifer_Inter", "/lucifer_lose.html", "lucifer_tie.html")
 }
 else if (stage.dataset.room == "lucifer2"){
     maincontent.style.width = "62%"
-    stage.style.marginBottom = "0"
-    battleSetup(0, 3,stagesetchoices.LuciferChoices_Exp, "./Lucifer_win.html", "./lucifer_lose.html", "./lucifer_tie.html")
+    location.style.marginBottom = "0"
+    battleSetup(0, 3,stagesetchoices.LuciferChoices_Exp, "/Lucifer_win", "/lucifer_lose.html", "lucifer_tie.html")
 }
 
 
@@ -219,7 +219,7 @@ if (stage.dataset.room == "throne"){
     
     document.querySelector('.option').addEventListener("click", (e)=>{
         e.preventDefault()
-        changedesc(i, luciferDialogue, "./LuciferFight.html")
+        changedesc(i, luciferDialogue, "/LuciferFight.html")
         i++
     })
 }
